@@ -76,7 +76,7 @@ const translations = {
     },
     notes: "הערות נוספות",
     notesPlaceholder: "הוסף בקשות מיוחדות כאן...",
-    orderInstructions: "בהערה רשמו את הפרטים שלכם בשביל ההזמנה.\n\nאם אתם לא רוצים לשלוח בוואטסאפ לחצו על הדפסה והורידו אליכם את פרטי ההזמנה, את הקובץ שיורד שלחו בכל דרך שאתם רוצים",
+    orderInstructions: "בהערה רשמו את הפרטים שלכם בשביל ההזמנה, אנו נעדכן אתכם במחיר.\n\nאם אתם לא רוצים לשלוח בוואטסאפ לחצו על הדפסה והורידו אליכם את פרטי ההזמנה, את הקובץ שיורד שלחו בכל דרך שאתם רוצים",
   }
 };
 
@@ -201,21 +201,40 @@ ${orderNotes ? `📝 *Notes:*\n${orderNotes}` : ''}
       {/* Main Content */}
       <main className="container mx-auto p-4">
         {/* Progress Steps */}
-        <div className="mb-8">
-          <div className="flex justify-between items-center">
+        <div className="mb-8 overflow-x-auto">
+          <div className="flex justify-between items-center min-w-[500px] md:min-w-0">
             {t.steps.map((step, index) => (
               <div 
                 key={index} 
-                className={`flex-1 text-center ${index < currentStep ? 'text-green-400' : index === currentStep ? 'text-blue-400' : 'text-gray-500'}`}
+                className={`flex-1 text-center px-1 ${index < currentStep ? 'text-green-400' : index === currentStep ? 'text-blue-400' : 'text-gray-500'}`}
               >
                 <div className="relative">
-                  <div className={`h-2 ${index === 0 ? 'hidden' : ''} absolute top-3 w-full ${index <= currentStep ? 'bg-blue-400' : 'bg-gray-700'}`} style={{ right: '50%' }}></div>
-                  <div className={`h-2 ${index === t.steps.length - 1 ? 'hidden' : ''} absolute top-3 w-full ${index < currentStep ? 'bg-blue-400' : 'bg-gray-700'}`} style={{ left: '50%' }}></div>
-                  <div className={`h-6 w-6 rounded-full mx-auto mb-1 flex items-center justify-center ${index <= currentStep ? 'bg-blue-500' : 'bg-gray-700'}`}>
-                    {index < currentStep ? '✓' : index + 1}
+                  {/* Progress Lines */}
+                  <div className="absolute top-1/2 left-0 right-0 -translate-y-1/2 h-2">
+                    {index !== 0 && (
+                      <div 
+                        className={`h-full absolute right-1/2 left-0 ${index <= currentStep ? 'bg-blue-400' : 'bg-gray-700'}`}
+                      />
+                    )}
+                    {index !== t.steps.length - 1 && (
+                      <div 
+                        className={`h-full absolute left-1/2 right-0 ${index < currentStep ? 'bg-blue-400' : 'bg-gray-700'}`}
+                      />
+                    )}
+                  </div>
+                  
+                  {/* Circle with Number */}
+                  <div 
+                    className={`relative z-10 h-8 w-8 rounded-full mx-auto mb-1 flex items-center justify-center ${
+                      index <= currentStep ? 'bg-blue-500' : 'bg-gray-700'
+                    } border-4 border-gray-900`}
+                  >
+                    <span className="text-sm font-medium">
+                      {index < currentStep ? '✓' : index + 1}
+                    </span>
                   </div>
                 </div>
-                <div>{step}</div>
+                <div className="text-xs sm:text-sm whitespace-nowrap mt-1">{step}</div>
               </div>
             ))}
           </div>
