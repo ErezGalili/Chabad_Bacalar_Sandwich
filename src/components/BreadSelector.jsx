@@ -1,21 +1,11 @@
 import React from 'react';
 
 const translations = {
-  en: {
-    title: "Choose Your Bread",
-    description: "Select the perfect bread for your sandwich",
-    breads: {
-      baguette: "Baguette",
-      ciabatta: "Ciabatta"
-    }
-  },
-  he: {
-    title: "בחר את הלחם שלך",
-    description: "בחר את הלחם המושלם לכריך שלך",
-    breads: {
-      baguette: "באגט",
-      ciabatta: "צ'יאבטה"
-    }
+  title: "Choose Your Bread",
+  description: "Select the perfect bread for your sandwich",
+  breads: {
+    baguette: "Baguette",
+    ciabatta: "Ciabatta"
   }
 };
 
@@ -24,14 +14,13 @@ const breadImages = {
   ciabatta: "/images/breads/ciabatta.jpg"
 };
 
-function BreadSelector({ selectedBread, onSelect, language }) {
-  const t = translations[language];
-  const breadOptions = Object.keys(t.breads);
+function BreadSelector({ selectedBread, onSelect }) {
+  const breadOptions = Object.keys(translations.breads);
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">{t.title}</h2>
-      <p className="mb-6 text-gray-300">{t.description}</p>
+      <h2 className="text-2xl font-bold mb-4">{translations.title}</h2>
+      <p className="mb-6 text-gray-300">{translations.description}</p>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {breadOptions.map((bread) => (
@@ -43,7 +32,7 @@ function BreadSelector({ selectedBread, onSelect, language }) {
             <div className="h-48 bg-gray-700">
               <img 
                 src={breadImages[bread]} 
-                alt={t.breads[bread]} 
+                alt={translations.breads[bread]} 
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -54,7 +43,7 @@ function BreadSelector({ selectedBread, onSelect, language }) {
                   <div className="w-3 h-3 rounded-full bg-blue-500"></div>
                 )}
               </div>
-              <h3 className="text-xl font-medium">{t.breads[bread]}</h3>
+              <h3 className="text-xl font-medium">{translations.breads[bread]}</h3>
             </div>
           </div>
         ))}

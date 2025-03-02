@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 @layer base {
   html {
@@ -11,17 +11,6 @@
     @apply antialiased;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
-}
-
-/* RTL Support */
-.rtl {
-  direction: rtl;
-  text-align: right;
-}
-
-.ltr {
-  direction: ltr;
-  text-align: left;
 }
 
 /* Container override for better mobile padding */

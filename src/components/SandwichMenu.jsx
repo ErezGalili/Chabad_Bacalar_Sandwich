@@ -1,29 +1,15 @@
 import React from 'react';
 
 const translations = {
-  en: {
-    title: "Choose Your Sandwich",
-    description: "Select from our delicious sandwich options",
-    sandwiches: {
-      schnitzel: "Schnitzel",
-      hamburger: "Hamburger",
-      kebab: "Kebab",
-      falafel: "Falafel",
-      sabich: "Sabich",
-      omelette: "Omelette"
-    }
-  },
-  he: {
-    title: "בחר את הכריך שלך",
-    description: "בחר מבין אפשרויות הכריכים הטעימות שלנו",
-    sandwiches: {
-      schnitzel: "שניצל",
-      hamburger: "המבורגר",
-      kebab: "קבב",
-      falafel: "פלאפל",
-      sabich: "סביח",
-      omelette: "חביתה"
-    }
+  title: "Choose Your Sandwich",
+  description: "Select from our delicious sandwich options",
+  sandwiches: {
+    schnitzel: "Schnitzel",
+    hamburger: "Hamburger",
+    kebab: "Kebab",
+    falafel: "Falafel",
+    sabich: "Sabich",
+    omelette: "Omelette"
   }
 };
 
@@ -36,14 +22,13 @@ const sandwichImages = {
   omelette: "/images/sandwiches/omelette.jpg"
 };
 
-function SandwichMenu({ selectedSandwich, onSelect, language }) {
-  const t = translations[language];
-  const sandwichOptions = Object.keys(t.sandwiches);
+function SandwichMenu({ selectedSandwich, onSelect }) {
+  const sandwichOptions = Object.keys(translations.sandwiches);
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">{t.title}</h2>
-      <p className="mb-6 text-gray-300">{t.description}</p>
+      <h2 className="text-2xl font-bold mb-4">{translations.title}</h2>
+      <p className="mb-6 text-gray-300">{translations.description}</p>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {sandwichOptions.map((sandwich) => (
@@ -55,13 +40,13 @@ function SandwichMenu({ selectedSandwich, onSelect, language }) {
             <div className="relative h-48 bg-gray-700">
               <img 
                 src={sandwichImages[sandwich]} 
-                alt={t.sandwiches[sandwich]} 
+                alt={translations.sandwiches[sandwich]} 
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
               <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h3 className="text-xl font-bold text-white">{t.sandwiches[sandwich]}</h3>
+                <h3 className="text-xl font-bold text-white">{translations.sandwiches[sandwich]}</h3>
               </div>
               {selectedSandwich === sandwich && (
                 <div className="absolute top-2 right-2 bg-blue-500 text-white rounded-full p-1">

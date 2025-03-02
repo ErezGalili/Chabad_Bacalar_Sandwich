@@ -1,79 +1,39 @@
 import React from 'react';
-import { Printer, Send } from 'lucide-react';
 
 const translations = {
-  en: {
-    title: "Order Summary",
-    description: "Review your sandwich order",
-    sandwich: "Sandwich",
-    bread: "Bread",
-    toppings: "Toppings",
-    noToppings: "No toppings selected",
-    submit: "Submit Order",
-    print: "Print Order",
-    whatsapp: "Send via WhatsApp",
-    sandwiches: {
-      schnitzel: "Schnitzel",
-      hamburger: "Hamburger",
-      kebab: "Kebab",
-      falafel: "Falafel",
-      sabich: "Sabich",
-      omelette: "Omelette"
-    },
-    breads: {
-      baguette: "Baguette",
-      ciabatta: "Ciabatta"
-    },
-    toppingsList: {
-      hummus: "Hummus",
-      tahini: "Tahini",
-      hotSauce: "Hot Sauce",
-      freshCabbage: "Fresh Cabbage",
-      pickledCabbage: "Pickled Cabbage",
-      pickles: "Pickles",
-      purpleCabbage: "Purple Cabbage",
-      mayonnaise: "Mayonnaise",
-      frenchFries: "French Fries"
-    }
+  title: "Order Summary",
+  description: "Review your sandwich order",
+  sandwich: "Sandwich",
+  bread: "Bread",
+  toppings: "Toppings",
+  noToppings: "No toppings selected",
+  sandwiches: {
+    schnitzel: "Schnitzel",
+    hamburger: "Hamburger",
+    kebab: "Kebab",
+    falafel: "Falafel",
+    sabich: "Sabich",
+    omelette: "Omelette"
   },
-  he: {
-    title: "סיכום הזמנה",
-    description: "סקור את הזמנת הכריך שלך",
-    sandwich: "כריך",
-    bread: "לחם",
-    toppings: "תוספות",
-    noToppings: "לא נבחרו תוספות",
-    submit: "שלח הזמנה",
-    print: "הדפס הזמנה",
-    whatsapp: "שלח בוואטסאפ",
-    sandwiches: {
-      schnitzel: "שניצל",
-      hamburger: "המבורגר",
-      kebab: "קבב",
-      falafel: "פלאפל",
-      sabich: "סביח",
-      omelette: "חביתה"
-    },
-    breads: {
-      baguette: "באגט",
-      ciabatta: "צ'יאבטה"
-    },
-    toppingsList: {
-      hummus: "חומוס",
-      tahini: "טחינה",
-      hotSauce: "רוטב חריף",
-      freshCabbage: "כרוב טרי",
-      pickledCabbage: "כרוב כבוש",
-      pickles: "חמוצים",
-      purpleCabbage: "כרוב סגול",
-      mayonnaise: "מיונז",
-      frenchFries: "צ'יפס"
-    }
+  breads: {
+    baguette: "Baguette",
+    ciabatta: "Ciabatta"
+  },
+  toppingsList: {
+    hummus: "Hummus",
+    tahini: "Tahini",
+    hotSauce: "Hot Sauce",
+    freshCabbage: "Fresh Cabbage",
+    pickledCabbage: "Pickled Cabbage",
+    pickles: "Pickles",
+    purpleCabbage: "Purple Cabbage",
+    mayonnaise: "Mayonnaise",
+    frenchFries: "French Fries"
   }
 };
 
-function OrderSummary({ order, onWhatsApp, onPrint, language }) {
-  const t = translations[language];
+function OrderSummary({ order, onPrint }) {
+  const t = translations;
   
   return (
     <div className="print:text-black">

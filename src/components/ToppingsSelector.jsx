@@ -1,35 +1,18 @@
 import React from 'react';
 
 const translations = {
-  en: {
-    title: "Add Toppings",
-    description: "Customize your sandwich with delicious toppings",
-    toppings: {
-      hummus: "Hummus",
-      tahini: "Tahini",
-      hotSauce: "Hot Sauce",
-      freshCabbage: "Fresh Cabbage",
-      pickledCabbage: "Pickled Cabbage",
-      pickles: "Pickles",
-      purpleCabbage: "Purple Cabbage",
-      mayonnaise: "Mayonnaise",
-      frenchFries: "French Fries"
-    }
-  },
-  he: {
-    title: "הוסף תוספות",
-    description: "התאם אישית את הכריך שלך עם תוספות טעימות",
-    toppings: {
-      hummus: "חומוס",
-      tahini: "טחינה",
-      hotSauce: "רוטב חריף",
-      freshCabbage: "כרוב טרי",
-      pickledCabbage: "כרוב כבוש",
-      pickles: "חמוצים",
-      purpleCabbage: "כרוב סגול",
-      mayonnaise: "מיונז",
-      frenchFries: "צ'יפס"
-    }
+  title: "Add Toppings",
+  description: "Customize your sandwich with delicious toppings",
+  toppings: {
+    hummus: "Hummus",
+    tahini: "Tahini",
+    hotSauce: "Hot Sauce",
+    freshCabbage: "Fresh Cabbage",
+    pickledCabbage: "Pickled Cabbage",
+    pickles: "Pickles",
+    purpleCabbage: "Purple Cabbage",
+    mayonnaise: "Mayonnaise",
+    frenchFries: "French Fries"
   }
 };
 
@@ -45,8 +28,8 @@ const toppingImages = {
   frenchFries: "/images/toppings/french-fries.jpg"
 };
 
-function ToppingsSelector({ selectedToppings, onSelect, language }) {
-  const t = translations[language];
+function ToppingsSelector({ selectedToppings, onSelect }) {
+  const t = translations;
   const toppingOptions = Object.keys(t.toppings);
 
   const toggleTopping = (topping) => {
